@@ -1,7 +1,8 @@
 import cv2
 
-if __name__ == '__main__':
-    imageread = cv2.imread('../assets/examples/im1.jpg')
+
+def run_selector(img_filename):
+    imageread = cv2.imread(img_filename)
     imagedraw = cv2.selectROI(imageread)
     croppedimage = imageread[int(imagedraw[1]):int(imagedraw[1] + imagedraw[3]),
                    int(imagedraw[0]):int(imagedraw[0] + imagedraw[2])]
