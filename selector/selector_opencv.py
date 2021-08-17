@@ -10,3 +10,6 @@ def run_selector(img_filename):
     cv2.imshow('Cropped_image', croppedimage)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
+
+    return {"xmin": int(imagedraw[0]), "ymin": int(imagedraw[1]), "xmax": int(imagedraw[0] + imagedraw[2]),
+            "ymax": int(imagedraw[1] + imagedraw[3])}
