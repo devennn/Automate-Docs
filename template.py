@@ -18,6 +18,10 @@ def is_template_name_valid(template_name):
     except json.decoder.JSONDecodeError:
         return False
 
+    # Return false if name is empty string
+    if template_name == "":
+        return False
+
     # Return false if name exists
     if template_name in content:
         return False
@@ -38,4 +42,7 @@ def write_template(content_raw):
 
 
 def get_template_name_list():
-    return [template_name for template_name in read_template()]
+    try:
+        return [template_name for template_name in read_template()]
+    except FileNotFoundError:
+        return []
